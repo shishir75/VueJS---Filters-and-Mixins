@@ -7,7 +7,7 @@
                 <hr>
                 <input type="text" v-model="filterText">
                 <hr>
-                <ul>
+                <ul v-if="filterText != '' ">
                     <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
                 </ul>
             </div>
