@@ -34,7 +34,7 @@
       computed: {
           filteredFruits() {
               return this.fruits.filter((element) => {
-                  return element.match(this.filterText);
+                  return element.toLowerCase().match(this.filterText.toLowerCase()); // case insensitive search
               });
           }
       }
