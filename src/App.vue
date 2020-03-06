@@ -10,12 +10,18 @@
                 <ul v-if="filterText != '' ">
                     <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
                 </ul>
+
+                <hr>
+
+                <app-list></app-list>
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+  import List from "./components/List";
 
   export default {
       name: 'App',
@@ -37,6 +43,9 @@
                   return element.toLowerCase().match(this.filterText.toLowerCase()); // case insensitive search
               });
           }
+      },
+      components: {
+          appList: List,
       }
 
   }
