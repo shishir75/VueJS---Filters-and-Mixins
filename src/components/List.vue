@@ -11,23 +11,13 @@
 </template>
 
 <script>
-export default {
-  name: 'List',
-  data() {
-    return {
-      fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
-      filterText: ''
-    }
-  },
-  computed: {
-    filteredFruits() {
-      return this.fruits.filter((element) => {
-        return element.toLowerCase().match(this.filterText.toLowerCase()); // case insensitive search
-      });
-    }
-  }
+    import { fruitMixins } from '../fruitMixins';
+    export default {
+        name: 'List',
+        mixins: [ fruitMixins ]
 
-}
+
+    }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

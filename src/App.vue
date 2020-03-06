@@ -21,15 +21,14 @@
 </template>
 
 <script>
-  import List from "./components/List";
+  import List from "./components/List"; // as default import/export , no {} needed
+  import { fruitMixins } from './fruitMixins';  // named import/export, that's why using {}
 
   export default {
       name: 'App',
       data() {
           return {
               text: 'Hello there',
-              fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
-              filterText: ''
           }
       },
       filters: {
@@ -37,16 +36,10 @@
               return value.toUpperCase();
           }
       },
-      computed: {
-          filteredFruits() {
-              return this.fruits.filter((element) => {
-                  return element.toLowerCase().match(this.filterText.toLowerCase()); // case insensitive search
-              });
-          }
-      },
       components: {
           appList: List,
-      }
+      },
+      mixins: [ fruitMixins ]
 
   }
 </script>
